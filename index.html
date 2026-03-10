@@ -10,18 +10,20 @@
   />
   <style>
     :root{
-      --azul-1:#0c2f57;
-      --azul-2:#114b88;
-      --azul-3:#1f6ec2;
+      --azul-oscuro:#0b2e52;
+      --azul:#114c89;
+      --azul-medio:#1f6fc6;
       --celeste:#eaf4ff;
+      --celeste-suave:#f4f9ff;
       --blanco:#ffffff;
-      --gris-1:#f4f7fb;
-      --gris-2:#d7e0ea;
-      --gris-3:#5d6b7a;
-      --texto:#1e2b37;
-      --sombra:0 10px 30px rgba(10, 40, 80, 0.12);
-      --radio:20px;
-      --ancho:1180px;
+      --gris-fondo:#f3f6fa;
+      --gris-borde:#dbe4ee;
+      --gris-texto:#5f6c7b;
+      --texto:#1c2a36;
+      --verde:#1f9d64;
+      --sombra:0 12px 30px rgba(11, 46, 82, 0.12);
+      --radio:22px;
+      --max:1200px;
     }
 
     *{
@@ -35,7 +37,7 @@
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
-      background:var(--gris-1);
+      background:var(--gris-fondo);
       color:var(--texto);
       line-height:1.6;
     }
@@ -46,25 +48,25 @@
     }
 
     a{
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     .contenedor{
-      width:min(92%, var(--ancho));
+      width:min(92%, var(--max));
       margin:0 auto;
     }
 
     .topbar{
-      background:var(--azul-1);
-      color:#dfeeff;
+      background:var(--azul-oscuro);
+      color:#dcecff;
       font-size:14px;
     }
 
     .topbar .contenedor{
       display:flex;
       justify-content:space-between;
-      gap:20px;
+      gap:15px;
       padding:10px 0;
       flex-wrap:wrap;
     }
@@ -72,16 +74,16 @@
     header{
       position:sticky;
       top:0;
-      z-index:1000;
+      z-index:999;
       background:rgba(255,255,255,0.96);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid var(--gris-2);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--gris-borde);
     }
 
     .header-wrap{
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:20px;
       padding:14px 0;
     }
@@ -94,13 +96,14 @@
     }
 
     .marca img{
-      width:64px;
-      height:64px;
-      object-fit:contain;
+      width:66px;
+      height:66px;
       border-radius:50%;
+      object-fit:contain;
       background:#fff;
-      border:1px solid var(--gris-2);
       padding:4px;
+      border:1px solid var(--gris-borde);
+      box-shadow:var(--sombra);
     }
 
     .marca-texto{
@@ -110,63 +113,107 @@
     .marca-texto .mini{
       margin:0;
       font-size:12px;
-      letter-spacing:1.3px;
-      color:var(--azul-2);
-      font-weight:bold;
+      color:var(--azul);
       text-transform:uppercase;
+      letter-spacing:1.4px;
+      font-weight:bold;
     }
 
     .marca-texto h1{
       margin:2px 0 0 0;
       font-size:24px;
       line-height:1.15;
-      color:var(--azul-1);
+      color:var(--azul-oscuro);
     }
 
     .marca-texto .sub{
       margin:4px 0 0 0;
       font-size:14px;
-      color:var(--gris-3);
+      color:var(--gris-texto);
     }
 
     nav ul{
       list-style:none;
-      margin:0;
-      padding:0;
       display:flex;
       gap:18px;
-      align-items:center;
+      margin:0;
+      padding:0;
       flex-wrap:wrap;
       justify-content:flex-end;
+      align-items:center;
     }
 
     nav a{
-      font-weight:bold;
-      color:var(--azul-1);
       font-size:15px;
+      font-weight:bold;
+      color:var(--azul-oscuro);
     }
 
     nav a:hover{
-      color:var(--azul-3);
+      color:var(--azul-medio);
+    }
+
+    .hero{
+      background:
+        linear-gradient(135deg, rgba(8, 34, 61, 0.94), rgba(17, 76, 137, 0.88)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color:#fff;
+      padding:80px 0 60px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.18);
+      font-size:14px;
+      margin-bottom:16px;
+    }
+
+    .hero h2{
+      margin:0 0 16px 0;
+      font-size:56px;
+      line-height:1.03;
+    }
+
+    .hero p{
+      margin:0;
+      font-size:18px;
+      color:#e8f2ff;
+      max-width:760px;
+    }
+
+    .hero-botones{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
     }
 
     .btn{
       display:inline-block;
-      padding:12px 20px;
+      padding:13px 22px;
       border-radius:999px;
       font-weight:bold;
       transition:0.2s ease;
     }
 
     .btn-principal{
-      background:var(--azul-3);
-      color:#fff;
+      background:#fff;
+      color:var(--azul-oscuro);
       box-shadow:var(--sombra);
     }
 
     .btn-principal:hover{
-      transform:translateY(-1px);
-      background:#165ea7;
+      transform:translateY(-2px);
     }
 
     .btn-secundario{
@@ -178,76 +225,30 @@
       background:rgba(255,255,255,0.12);
     }
 
-    .hero{
-      background:
-        linear-gradient(135deg, rgba(9,38,70,0.96), rgba(17,75,136,0.92)),
-        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80') center/cover;
-      color:#fff;
-      padding:72px 0 56px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .hero-badge{
-      display:inline-block;
-      background:rgba(255,255,255,0.15);
+    .hero-card{
+      background:rgba(255,255,255,0.11);
       border:1px solid rgba(255,255,255,0.18);
-      padding:8px 16px;
-      border-radius:999px;
-      font-size:14px;
-      margin-bottom:14px;
-    }
-
-    .hero h2{
-      margin:0 0 14px 0;
-      font-size:54px;
-      line-height:1.05;
-    }
-
-    .hero p{
-      margin:0;
-      font-size:18px;
-      max-width:780px;
-      color:#e8f2ff;
-    }
-
-    .hero-botones{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-top:28px;
-    }
-
-    .hero-panel{
-      background:rgba(255,255,255,0.1);
-      border:1px solid rgba(255,255,255,0.18);
-      border-radius:28px;
-      padding:26px;
-      backdrop-filter:blur(6px);
+      border-radius:30px;
+      padding:28px;
+      backdrop-filter:blur(8px);
       box-shadow:var(--sombra);
     }
 
-    .hero-panel-logo{
+    .hero-logo{
       width:190px;
       margin:0 auto 18px auto;
       background:rgba(255,255,255,0.9);
       border-radius:50%;
       padding:10px;
-      border:1px solid rgba(255,255,255,0.3);
     }
 
-    .hero-panel h3{
+    .hero-card h3{
       text-align:center;
       margin:0 0 10px 0;
       font-size:28px;
     }
 
-    .hero-panel p{
+    .hero-card p{
       text-align:center;
       font-size:15px;
       color:#eef6ff;
@@ -255,76 +256,77 @@
 
     .hero-datos{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
       margin-top:18px;
     }
 
     .dato{
       background:#fff;
-      color:var(--azul-1);
       border-radius:18px;
-      padding:18px 14px;
+      padding:18px 12px;
       text-align:center;
+      color:var(--azul-oscuro);
       box-shadow:var(--sombra);
     }
 
     .dato strong{
       display:block;
-      font-size:28px;
+      font-size:26px;
+      margin-bottom:6px;
       line-height:1;
-      margin-bottom:8px;
     }
 
     section{
-      padding:64px 0;
+      padding:68px 0;
     }
 
     .titulo-seccion{
-      margin-bottom:26px;
+      margin-bottom:28px;
     }
 
     .eyebrow{
       margin:0 0 8px 0;
       text-transform:uppercase;
       letter-spacing:1.4px;
-      color:var(--azul-3);
       font-size:13px;
+      color:var(--azul-medio);
       font-weight:bold;
     }
 
     .titulo-seccion h3{
       margin:0;
-      font-size:38px;
-      line-height:1.12;
-      color:var(--azul-1);
+      font-size:40px;
+      line-height:1.1;
+      color:var(--azul-oscuro);
     }
 
     .titulo-seccion p{
       margin:12px 0 0 0;
-      color:var(--gris-3);
-      max-width:900px;
+      color:var(--gris-texto);
+      max-width:920px;
     }
 
     .grid-2{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:26px;
+      gap:24px;
       align-items:start;
     }
 
     .card{
-      background:var(--blanco);
+      background:#fff;
       border-radius:var(--radio);
       padding:26px;
       box-shadow:var(--sombra);
-      border:1px solid #edf2f7;
+      border:1px solid #eaf0f6;
+      height:100%;
     }
 
     .card h4{
       margin:0 0 14px 0;
-      font-size:23px;
-      color:var(--azul-1);
+      font-size:24px;
+      color:var(--azul-oscuro);
     }
 
     .card p{
@@ -336,14 +338,58 @@
       padding-left:20px;
     }
 
+    .card li{
+      margin-bottom:8px;
+    }
+
     .destacado{
-      background:linear-gradient(180deg, #f6fbff, #eef6ff);
-      border:1px solid #dcecff;
+      background:linear-gradient(180deg, #f9fcff, #eff7ff);
+      border:1px solid #d9ebff;
+    }
+
+    .autoridades{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .persona{
+      background:#fff;
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--sombra);
+      border:1px solid #ebf0f5;
+      text-align:center;
+    }
+
+    .persona .icono{
+      width:74px;
+      height:74px;
+      margin:0 auto 14px auto;
+      border-radius:50%;
+      background:var(--celeste);
+      color:var(--azul);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+    .persona h4{
+      margin:0 0 8px 0;
+      color:var(--azul-oscuro);
+      font-size:22px;
+    }
+
+    .persona p{
+      margin:0;
+      color:var(--gris-texto);
     }
 
     .cards-3{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:24px;
     }
 
@@ -352,60 +398,96 @@
       border-radius:24px;
       padding:24px;
       box-shadow:var(--sombra);
-      border:1px solid #e8eef5;
+      border:1px solid #e9eef4;
       height:100%;
+    }
+
+    .etiqueta{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:var(--celeste);
+      color:var(--azul);
+      font-size:12px;
+      font-weight:bold;
     }
 
     .tarjeta h4{
       margin:0 0 14px 0;
-      color:var(--azul-1);
-      font-size:24px;
+      font-size:25px;
+      color:var(--azul-oscuro);
       line-height:1.2;
     }
 
     .tarjeta p{
       margin:0 0 12px 0;
-      color:#324353;
-    }
-
-    .tarjeta .etiqueta{
-      display:inline-block;
-      background:var(--celeste);
-      color:var(--azul-2);
-      border-radius:999px;
-      padding:7px 12px;
-      font-size:12px;
-      font-weight:bold;
-      margin-bottom:14px;
+      color:#334455;
     }
 
     .estructura{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:22px;
     }
 
-    .estructura .bloque{
-      background:linear-gradient(180deg, var(--azul-2), var(--azul-1));
+    .bloque{
+      background:linear-gradient(180deg, var(--azul), var(--azul-oscuro));
       color:#fff;
       border-radius:24px;
       padding:26px;
       box-shadow:var(--sombra);
     }
 
-    .estructura .bloque h4{
+    .bloque h4{
       margin:0 0 12px 0;
-      font-size:23px;
+      font-size:24px;
     }
 
-    .estructura .bloque p{
+    .bloque p{
       margin:0;
-      color:#e9f2ff;
+      color:#e7f1ff;
+    }
+
+    .galeria{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .foto{
+      background:#fff;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--sombra);
+      border:1px solid #e8eef5;
+    }
+
+    .foto img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+    }
+
+    .foto .texto{
+      padding:16px 18px;
+    }
+
+    .foto .texto h4{
+      margin:0 0 8px 0;
+      font-size:20px;
+      color:var(--azul-oscuro);
+    }
+
+    .foto .texto p{
+      margin:0;
+      color:var(--gris-texto);
+      font-size:14px;
     }
 
     .noticias{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:22px;
     }
 
@@ -421,8 +503,8 @@
       display:inline-block;
       padding:6px 12px;
       border-radius:999px;
-      background:#e9f4ff;
-      color:var(--azul-2);
+      background:#eaf4ff;
+      color:var(--azul);
       font-size:12px;
       font-weight:bold;
       margin-bottom:12px;
@@ -430,27 +512,32 @@
 
     .noticia h4{
       margin:0 0 10px 0;
-      font-size:20px;
-      color:var(--azul-1);
+      font-size:21px;
+      color:var(--azul-oscuro);
+    }
+
+    .noticia p{
+      margin:0;
+      color:#465564;
     }
 
     .franja{
-      background:linear-gradient(135deg, var(--azul-1), var(--azul-3));
+      background:linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio));
+      border-radius:30px;
+      padding:34px;
       color:#fff;
-      border-radius:28px;
-      padding:30px;
       box-shadow:var(--sombra);
     }
 
     .franja h3{
-      margin:0 0 10px 0;
+      margin:0 0 12px 0;
+      font-size:35px;
       color:#fff;
-      font-size:34px;
     }
 
     .franja p{
       margin:0;
-      color:#ebf3ff;
+      color:#e9f3ff;
       max-width:900px;
     }
 
@@ -460,66 +547,150 @@
       gap:24px;
     }
 
-    .datos-contacto .item{
+    .item-contacto{
       padding:16px 0;
-      border-bottom:1px solid #e6edf5;
+      border-bottom:1px solid #e5edf5;
     }
 
-    .datos-contacto .item:last-child{
+    .item-contacto:last-child{
       border-bottom:none;
     }
 
-    .datos-contacto strong{
+    .item-contacto strong{
       display:block;
-      color:var(--azul-2);
+      color:var(--azul);
       margin-bottom:4px;
+    }
+
+    .formulario{
+      display:grid;
+      gap:14px;
+    }
+
+    .formulario input,
+    .formulario textarea{
+      width:100%;
+      border:1px solid #d9e3ed;
+      border-radius:14px;
+      padding:14px 15px;
+      font-size:15px;
+      font-family:Arial, Helvetica, sans-serif;
+      background:#fbfdff;
+    }
+
+    .formulario textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .formulario button{
+      border:none;
+      background:var(--azul);
+      color:#fff;
+      font-weight:bold;
+      padding:14px 18px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+
+    .formulario button:hover{
+      background:var(--azul-medio);
     }
 
     .mapa iframe{
       width:100%;
-      height:100%;
       min-height:340px;
       border:0;
       border-radius:20px;
     }
 
-    footer{
-      background:var(--azul-1);
-      color:#dceaff;
+    .footer-principal{
+      background:var(--azul-oscuro);
+      color:#e1eeff;
       margin-top:20px;
     }
 
-    .footer-wrap{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      padding:24px 0;
-      flex-wrap:wrap;
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr;
+      gap:24px;
+      padding:34px 0;
     }
 
-    .footer-wrap p{
-      margin:0;
+    .footer-col h4{
+      margin:0 0 12px 0;
+      color:#fff;
+      font-size:20px;
+    }
+
+    .footer-col p,
+    .footer-col li{
+      margin:0 0 10px 0;
+      color:#d9e8fb;
       font-size:14px;
     }
 
-    @media (max-width: 980px){
+    .footer-col ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .footer-final{
+      border-top:1px solid rgba(255,255,255,0.14);
+      padding:18px 0;
+      font-size:14px;
+      color:#d6e6fb;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:var(--verde);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      box-shadow:0 12px 24px rgba(31,157,100,0.35);
+      z-index:999;
+    }
+
+    .whatsapp:hover{
+      transform:scale(1.05);
+    }
+
+    @media (max-width: 1024px){
       .hero-grid,
       .grid-2,
+      .autoridades,
       .cards-3,
       .estructura,
+      .galeria,
       .noticias,
-      .contacto{
+      .contacto,
+      .footer-grid{
         grid-template-columns:1fr;
       }
 
       .hero h2{
-        font-size:40px;
+        font-size:42px;
       }
 
       .hero-datos{
         grid-template-columns:1fr;
       }
+    }
 
+    @media (max-width: 760px){
       .header-wrap{
         flex-direction:column;
         align-items:flex-start;
@@ -528,36 +699,27 @@
       nav ul{
         justify-content:flex-start;
       }
-    }
-
-    @media (max-width: 640px){
-      .marca img{
-        width:54px;
-        height:54px;
-      }
-
-      .marca-texto h1{
-        font-size:20px;
-      }
 
       .hero{
-        padding:54px 0 42px;
+        padding:58px 0 44px;
       }
 
       .hero h2{
-        font-size:32px;
+        font-size:34px;
       }
 
       .titulo-seccion h3,
       .franja h3{
-        font-size:28px;
+        font-size:29px;
       }
 
-      .card,
-      .tarjeta,
-      .noticia,
-      .estructura .bloque{
-        padding:20px;
+      .marca img{
+        width:56px;
+        height:56px;
+      }
+
+      .marca-texto h1{
+        font-size:20px;
       }
     }
   </style>
@@ -567,7 +729,7 @@
   <div class="topbar">
     <div class="contenedor">
       <div>Escuela de Educación Secundaria Técnica N° 6 · Avellaneda</div>
-      <div>Educación técnica pública</div>
+      <div>Formación técnica pública</div>
     </div>
   </div>
 
@@ -578,7 +740,7 @@
         <div class="marca-texto">
           <p class="mini">Escuela de Educación Secundaria Técnica</p>
           <h1>EEST N° 6 de Avellaneda</h1>
-          <p class="sub">Formación técnica con identidad, práctica y futuro</p>
+          <p class="sub">Educación técnica, práctica y compromiso con la comunidad</p>
         </div>
       </div>
 
@@ -586,8 +748,10 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#nosotros">Sobre Nosotros</a></li>
+          <li><a href="#autoridades">Autoridades</a></li>
           <li><a href="#orientaciones">Orientaciones</a></li>
           <li><a href="#estructura">Estructura</a></li>
+          <li><a href="#galeria">Galería</a></li>
           <li><a href="#novedades">Novedades</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -598,41 +762,41 @@
   <section class="hero" id="inicio">
     <div class="contenedor hero-grid">
       <div>
-        <div class="hero-badge">Educación técnica pública · Avellaneda</div>
-        <h2>Formamos estudiantes para el trabajo, la tecnología y el futuro</h2>
+        <div class="badge">Avellaneda · Educación técnica pública</div>
+        <h2>Una escuela técnica para aprender haciendo</h2>
         <p>
-          La Escuela de Educación Secundaria Técnica N° 6 de Avellaneda ofrece
-          una trayectoria educativa integral, articulando saberes científicos,
-          tecnológicos y prácticos, con fuerte presencia de talleres, proyectos
-          y formación profesional.
+          La Escuela de Educación Secundaria Técnica N° 6 de Avellaneda brinda
+          una formación integral basada en el trabajo en taller, la aplicación
+          de conocimientos científicos y tecnológicos, y la preparación de los
+          estudiantes para continuar estudios superiores o insertarse en el mundo laboral.
         </p>
 
         <div class="hero-botones">
           <a class="btn btn-principal" href="#orientaciones">Ver orientaciones</a>
-          <a class="btn btn-secundario" href="#contacto">Información de contacto</a>
+          <a class="btn btn-secundario" href="#contacto">Contactarse con la escuela</a>
         </div>
       </div>
 
-      <div class="hero-panel">
-        <img class="hero-panel-logo" src="logo.png" alt="Logo institucional">
+      <div class="hero-card">
+        <img class="hero-logo" src="logo.png" alt="Logo institucional EEST N° 6">
         <h3>EEST N° 6</h3>
         <p>
-          Sitio institucional pensado para informar a estudiantes, familias,
-          docentes y comunidad educativa.
+          Sitio institucional preparado para compartir información con estudiantes,
+          familias, docentes y toda la comunidad educativa.
         </p>
 
         <div class="hero-datos">
           <div class="dato">
             <strong>3</strong>
-            Orientaciones destacadas
+            Orientaciones
           </div>
           <div class="dato">
             <strong>1° a 7°</strong>
-            Trayectoria técnica completa
+            Trayectoria completa
           </div>
           <div class="dato">
             <strong>7°</strong>
-            Año con prácticas profesionalizantes
+            Año profesionalizante
           </div>
         </div>
       </div>
@@ -645,11 +809,10 @@
         <p class="eyebrow">Sobre Nosotros</p>
         <h3>Una institución comprometida con la formación técnica</h3>
         <p>
-          La EEST N° 6 de Avellaneda brinda una formación integral que combina
-          teoría, práctica, tecnología y trabajo en taller. La propuesta educativa
-          busca preparar a los estudiantes para continuar estudios superiores,
-          insertarse en el mundo laboral y participar activamente en el desarrollo
-          de su comunidad.
+          La EEST N° 6 de Avellaneda desarrolla una propuesta educativa que une
+          teoría, práctica, trabajo en taller y formación para la vida, preparando
+          a sus estudiantes para responder a los desafíos de la tecnología, la producción
+          y la organización del trabajo.
         </p>
       </div>
 
@@ -657,28 +820,59 @@
         <div class="card">
           <h4>Identidad institucional</h4>
           <p>
-            La escuela se caracteriza por su orientación técnica, su vinculación
-            con la producción y la formación de estudiantes capaces de resolver
-            problemas concretos mediante herramientas, procedimientos y conocimientos
-            específicos.
+            La escuela promueve una formación técnica integral, fortaleciendo la
+            responsabilidad, la creatividad, la resolución de problemas y el compromiso
+            con el entorno social y productivo.
           </p>
           <p>
-            Desde los primeros años, los alumnos desarrollan hábitos de trabajo,
-            responsabilidad, pensamiento crítico y competencias técnicas que se
-            fortalecen a lo largo de toda la trayectoria escolar.
+            A lo largo de su trayectoria escolar, los estudiantes construyen saberes
+            específicos, hábitos de trabajo y capacidades que los preparan tanto para
+            seguir estudiando como para desenvolverse en contextos laborales reales.
           </p>
         </div>
 
         <div class="card destacado">
-          <h4>Qué puede incluir este sitio</h4>
+          <h4>Este sitio puede incluir</h4>
           <ul>
-            <li>Información institucional y autoridades</li>
-            <li>Noticias, comunicados y actos escolares</li>
-            <li>Orientaciones académicas y perfil del egresado</li>
-            <li>Galería de proyectos, talleres y ferias</li>
-            <li>Horarios, documentación y enlaces útiles</li>
-            <li>Datos de contacto y ubicación</li>
+            <li>Información institucional y proyecto educativo</li>
+            <li>Autoridades y equipo docente</li>
+            <li>Orientaciones académicas</li>
+            <li>Noticias, actos y comunicados</li>
+            <li>Galería de fotos de talleres y proyectos</li>
+            <li>Horarios, ubicación y medios de contacto</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="autoridades">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <p class="eyebrow">Autoridades</p>
+        <h3>Equipo institucional</h3>
+        <p>
+          Esta sección está lista para completar con los nombres reales de las autoridades.
+        </p>
+      </div>
+
+      <div class="autoridades">
+        <div class="persona">
+          <div class="icono">D</div>
+          <h4>Dirección</h4>
+          <p>Agregar nombre del Director o Directora</p>
+        </div>
+
+        <div class="persona">
+          <div class="icono">V</div>
+          <h4>Vicedirección</h4>
+          <p>Agregar nombre del Vicedirector o Vicedirectora</p>
+        </div>
+
+        <div class="persona">
+          <div class="icono">J</div>
+          <h4>Jefatura de Área / Taller</h4>
+          <p>Agregar nombre correspondiente</p>
         </div>
       </div>
     </div>
@@ -690,15 +884,14 @@
         <p class="eyebrow">Orientaciones Académicas</p>
         <h3>Propuestas formativas de la institución</h3>
         <p>
-          En el ciclo superior, los estudiantes profundizan su formación a través
-          de orientaciones que articulan saberes técnicos, prácticas específicas
-          y preparación para el mundo del trabajo.
+          En el ciclo superior, los estudiantes profundizan su formación en áreas
+          específicas que articulan teoría, prácticas técnicas y proyección laboral.
         </p>
       </div>
 
       <div class="cards-3">
         <article class="tarjeta">
-          <div class="etiqueta">Orientación técnica</div>
+          <div class="etiqueta">Especialidad principal</div>
           <h4>Tecnicatura en Electromecánica</h4>
           <p><strong>Perfil:</strong> Formación en sistemas mecánicos, eléctricos, neumáticos e hidráulicos.</p>
           <p><strong>Salida laboral:</strong> Industrias, empresas de mantenimiento, diseño de piezas en CAD y operación de maquinaria pesada.</p>
@@ -709,12 +902,12 @@
           <div class="etiqueta">Área energética</div>
           <h4>Electricidad</h4>
           <p><strong>Contenidos:</strong> Instalaciones domiciliarias e industriales, tableros eléctricos, control de motores y energías renovables.</p>
-          <p><strong>Competencia:</strong> Los egresados suelen matricularse para realizar proyectos de instalaciones eléctricas seguras bajo normativas vigentes.</p>
-          <p><strong>Enfoque:</strong> Formación aplicada a la energía, la seguridad eléctrica y el mantenimiento.</p>
+          <p><strong>Competencia:</strong> Los egresados pueden matricularse para realizar proyectos de instalaciones eléctricas seguras bajo normativas vigentes.</p>
+          <p><strong>Enfoque:</strong> Formación aplicada a la energía, seguridad y mantenimiento eléctrico.</p>
         </article>
 
         <article class="tarjeta">
-          <div class="etiqueta">Gestión y administración</div>
+          <div class="etiqueta">Gestión administrativa</div>
           <h4>Comercial · Tecnicatura en Administración</h4>
           <p><strong>Perfil:</strong> Gestión de empresas, contabilidad, recursos humanos y marketing.</p>
           <p><strong>Enfoque:</strong> Ideal para trabajar en oficinas técnicas, administración de PyMEs o emprender proyectos propios.</p>
@@ -730,9 +923,8 @@
         <p class="eyebrow">Estructura de la Institución</p>
         <h3>Trayectoria formativa por ciclos</h3>
         <p>
-          La organización académica acompaña el crecimiento de los estudiantes
-          desde la formación general inicial hasta la especialización y las
-          prácticas vinculadas con situaciones reales de trabajo.
+          La propuesta institucional acompaña a los estudiantes desde una base común
+          hasta la especialización técnica y las prácticas profesionalizantes.
         </p>
       </div>
 
@@ -740,25 +932,64 @@
         <div class="bloque">
           <h4>Ciclo Básico (1° a 3° año)</h4>
           <p>
-            Años de formación general donde todos los alumnos pasan por los mismos
-            talleres para conocer herramientas, materiales y procedimientos técnicos básicos.
+            Etapa de formación general donde todos los alumnos pasan por los mismos
+            talleres para conocer herramientas, procedimientos y saberes técnicos básicos.
           </p>
         </div>
 
         <div class="bloque">
           <h4>Ciclo Superior (4° a 7° año)</h4>
           <p>
-            Etapa en la que los estudiantes eligen una de las orientaciones
-            disponibles y profundizan su preparación técnica o administrativa.
+            Momento en que los estudiantes eligen una orientación y profundizan
+            su formación en el área específica seleccionada.
           </p>
         </div>
 
         <div class="bloque">
           <h4>7° Año y Prácticas Profesionalizantes</h4>
           <p>
-            Último año en el que los chicos realizan pasantías, proyectos finales
-            o experiencias profesionalizantes para aplicar lo aprendido en el mundo real.
+            Último tramo de formación donde se realizan pasantías, proyectos finales
+            o prácticas para aplicar lo aprendido en contextos reales.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <p class="eyebrow">Galería</p>
+        <h3>Espacios, talleres y proyectos</h3>
+        <p>
+          Esta galería puede reemplazarse por fotos reales de la escuela, aulas, talleres,
+          laboratorios, exposiciones y producciones estudiantiles.
+        </p>
+      </div>
+
+      <div class="galeria">
+        <div class="foto">
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80" alt="Taller técnico">
+          <div class="texto">
+            <h4>Talleres</h4>
+            <p>Espacios para aprender con herramientas, materiales y proyectos concretos.</p>
+          </div>
+        </div>
+
+        <div class="foto">
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Aula técnica">
+          <div class="texto">
+            <h4>Aulas y formación teórica</h4>
+            <p>Integración de contenidos científicos, tecnológicos y administrativos.</p>
+          </div>
+        </div>
+
+        <div class="foto">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Proyecto escolar">
+          <div class="texto">
+            <h4>Proyectos estudiantiles</h4>
+            <p>Producciones que reflejan creatividad, conocimiento y trabajo colaborativo.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -768,10 +999,10 @@
     <div class="contenedor">
       <div class="titulo-seccion">
         <p class="eyebrow">Novedades</p>
-        <h3>Espacio para informar a toda la comunidad educativa</h3>
+        <h3>Información para toda la comunidad educativa</h3>
         <p>
-          Esta sección puede actualizarse con inscripciones, actos, reuniones,
-          ferias, proyectos de taller, comunicados institucionales y fechas importantes.
+          Este bloque sirve para publicar avisos importantes, actos, reuniones,
+          inscripciones y actividades especiales.
         </p>
       </div>
 
@@ -780,26 +1011,26 @@
           <span>Institucional</span>
           <h4>Inscripciones y documentación</h4>
           <p>
-            Publicación de fechas, requisitos, vacantes y documentación para
-            ingreso o continuidad pedagógica.
+            Publicación de fechas, requisitos, documentación y comunicaciones
+            importantes para estudiantes y familias.
           </p>
         </article>
 
         <article class="noticia">
           <span>Proyectos</span>
-          <h4>Muestras y trabajos de taller</h4>
+          <h4>Ferias, muestras y exposiciones</h4>
           <p>
-            Espacio para compartir producciones estudiantiles, ferias de ciencias,
-            exposiciones técnicas y actividades especiales.
+            Espacio para mostrar proyectos de taller, muestras técnicas, ferias
+            de ciencias y trabajos destacados.
           </p>
         </article>
 
         <article class="noticia">
           <span>Comunidad</span>
-          <h4>Comunicados y actos escolares</h4>
+          <h4>Actos y comunicados escolares</h4>
           <p>
-            Avisos importantes para familias, estudiantes y docentes, junto con
-            cronogramas y fechas institucionales.
+            Novedades institucionales, recordatorios, reuniones y cronogramas
+            para acompañar la vida escolar.
           </p>
         </article>
       </div>
@@ -809,11 +1040,11 @@
   <section>
     <div class="contenedor">
       <div class="franja">
-        <h3>Educación técnica, compromiso y proyección</h3>
+        <h3>Educación técnica para construir futuro</h3>
         <p>
-          La EEST N° 6 de Avellaneda acompaña a sus estudiantes en una formación
-          que une conocimiento, práctica, responsabilidad y preparación para los
-          desafíos del presente y del futuro.
+          La EEST N° 6 de Avellaneda apuesta a una formación basada en el saber,
+          la práctica, la responsabilidad y la preparación de sus estudiantes para
+          los desafíos del presente y del mañana.
         </p>
       </div>
     </div>
@@ -823,42 +1054,55 @@
     <div class="contenedor">
       <div class="titulo-seccion">
         <p class="eyebrow">Contacto</p>
-        <h3>Información institucional</h3>
+        <h3>Información institucional y consultas</h3>
         <p>
-          Completá estos datos con la información oficial de la escuela antes de publicar.
+          Completá los datos oficiales antes de publicar la versión final.
         </p>
       </div>
 
       <div class="contacto">
-        <div class="card datos-contacto">
-          <h4>Datos de la escuela</h4>
+        <div class="card">
+          <h4>Datos de contacto</h4>
 
-          <div class="item">
+          <div class="item-contacto">
             <strong>Dirección</strong>
             <span>Agregar dirección oficial de la escuela</span>
           </div>
 
-          <div class="item">
+          <div class="item-contacto">
             <strong>Teléfono</strong>
             <span>Agregar teléfono institucional</span>
           </div>
 
-          <div class="item">
+          <div class="item-contacto">
             <strong>Correo electrónico</strong>
             <span>Agregar correo oficial</span>
           </div>
 
-          <div class="item">
+          <div class="item-contacto">
             <strong>Horarios de atención</strong>
             <span>Agregar días y horarios</span>
           </div>
 
-          <div class="item">
-            <strong>Redes o formularios</strong>
-            <span>Agregar enlaces oficiales si los hubiera</span>
+          <div class="item-contacto">
+            <strong>WhatsApp</strong>
+            <span>Cambiar el número del botón flotante por el oficial</span>
           </div>
         </div>
 
+        <div class="card">
+          <h4>Formulario de contacto</h4>
+          <form class="formulario" onsubmit="event.preventDefault(); alert('Este formulario es de ejemplo. Después se puede conectar con Google Forms o Apps Script.');">
+            <input type="text" placeholder="Nombre y apellido" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="text" placeholder="Asunto">
+            <textarea placeholder="Escribí tu consulta"></textarea>
+            <button type="submit">Enviar consulta</button>
+          </form>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;">
         <div class="card mapa">
           <h4>Ubicación</h4>
           <iframe
@@ -872,12 +1116,48 @@
     </div>
   </section>
 
-  <footer>
-    <div class="contenedor footer-wrap">
-      <p>Escuela de Educación Secundaria Técnica N° 6 · Avellaneda</p>
-      <p>Sitio institucional en desarrollo</p>
+  <footer class="footer-principal">
+    <div class="contenedor footer-grid">
+      <div class="footer-col">
+        <h4>EEST N° 6 de Avellaneda</h4>
+        <p>
+          Sitio institucional preparado para difundir la propuesta educativa,
+          la identidad de la escuela y la información importante para toda la comunidad.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="#nosotros">Sobre Nosotros</a></li>
+          <li><a href="#autoridades">Autoridades</a></li>
+          <li><a href="#orientaciones">Orientaciones</a></li>
+          <li><a href="#estructura">Estructura</a></li>
+          <li><a href="#galeria">Galería</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Dirección: agregar dirección oficial</p>
+        <p>Teléfono: agregar teléfono</p>
+        <p>Email: agregar correo oficial</p>
+      </div>
+    </div>
+
+    <div class="contenedor footer-final">
+      <div>Escuela de Educación Secundaria Técnica N° 6 · Avellaneda</div>
+      <div>Sitio institucional en desarrollo</div>
     </div>
   </footer>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/5491100000000"
+    target="_blank"
+    aria-label="WhatsApp">
+    ☎
+  </a>
 
 </body>
 </html>
