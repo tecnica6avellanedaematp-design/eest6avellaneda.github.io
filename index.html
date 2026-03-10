@@ -3,17 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>EEST N° 6 de Wilde · Avellaneda</title>
-  <meta
-    name="description"
-    content="Sitio institucional de la Escuela de Educación Secundaria Técnica N° 6 de Wilde, Avellaneda."
-  />
+  <meta name="description" content="Sitio institucional de la Escuela de Educación Secundaria Técnica N° 6 de Wilde, Avellaneda. Especialidades, contacto, novedades e información para estudiantes y familias." />
+  <meta name="theme-color" content="#0b2f55" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="EEST N° 6 de Wilde · Avellaneda" />
+  <meta property="og:description" content="Sitio institucional de la Escuela de Educación Secundaria Técnica N° 6 de Wilde, Avellaneda." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:locale" content="es_AR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EEST N° 6 de Wilde · Avellaneda" />
+  <meta name="twitter:description" content="Sitio institucional de la Escuela de Educación Secundaria Técnica N° 6 de Wilde, Avellaneda." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b2f55'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-size='34' fill='white' font-family='Arial'%3E6%3C/text%3E%3C/svg%3E" />
+
   <style>
     :root{
-      --azul-950:#08233d;
+      --azul-950:#081f36;
       --azul-900:#0b2f55;
       --azul-800:#114a84;
       --azul-700:#1d67b2;
+      --azul-600:#3182ce;
       --azul-100:#eaf4ff;
       --azul-050:#f6fbff;
       --blanco:#ffffff;
@@ -28,10 +42,13 @@
       --rojo-100:#fff0f0;
       --amarillo:#c99700;
       --sombra:0 14px 34px rgba(11, 47, 85, 0.12);
+      --sombra-2:0 8px 20px rgba(11, 47, 85, 0.08);
       --radio-xl:30px;
       --radio-lg:22px;
       --radio-md:16px;
+      --radio-sm:12px;
       --ancho:1200px;
+      --transicion:0.25s ease;
     }
 
     *{
@@ -50,6 +67,10 @@
       line-height:1.6;
     }
 
+    body.menu-abierto{
+      overflow:hidden;
+    }
+
     img{
       max-width:100%;
       display:block;
@@ -58,6 +79,10 @@
     a{
       color:inherit;
       text-decoration:none;
+    }
+
+    button{
+      font:inherit;
     }
 
     .contenedor{
@@ -140,6 +165,21 @@
       color:var(--gris-texto);
     }
 
+    .menu-btn{
+      display:none;
+      width:48px;
+      height:48px;
+      border:none;
+      border-radius:14px;
+      background:var(--azul-100);
+      color:var(--azul-900);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      box-shadow:var(--sombra-2);
+    }
+
     nav ul{
       list-style:none;
       margin:0;
@@ -155,6 +195,7 @@
       font-size:15px;
       font-weight:bold;
       color:var(--azul-900);
+      transition:var(--transicion);
     }
 
     nav a:hover{
@@ -211,8 +252,9 @@
       padding:13px 22px;
       border-radius:999px;
       font-weight:bold;
-      transition:0.2s ease;
+      transition:var(--transicion);
       cursor:pointer;
+      border:none;
     }
 
     .btn-principal{
@@ -228,6 +270,7 @@
     .btn-secundario{
       border:2px solid rgba(255,255,255,0.7);
       color:#fff;
+      background:transparent;
     }
 
     .btn-secundario:hover{
@@ -369,6 +412,11 @@
       box-shadow:var(--sombra);
       border:1px solid #ebf1f7;
       text-align:center;
+      transition:var(--transicion);
+    }
+
+    .acceso:hover{
+      transform:translateY(-4px);
     }
 
     .acceso .ico{
@@ -450,6 +498,11 @@
       box-shadow:var(--sombra);
       border:1px solid #e9eef4;
       height:100%;
+      transition:var(--transicion);
+    }
+
+    .tarjeta:hover{
+      transform:translateY(-4px);
     }
 
     .etiqueta{
@@ -499,6 +552,30 @@
       color:#e8f2ff;
     }
 
+    .mvv{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .valor-lista{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .valor-item{
+      background:var(--gris-suave);
+      padding:12px 14px;
+      border-radius:14px;
+    }
+
+    .perfil{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
     .inscripciones{
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
@@ -530,6 +607,117 @@
       align-items:center;
       justify-content:center;
       font-weight:bold;
+    }
+
+    .tramites{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .tramite{
+      background:#fff;
+      border-radius:20px;
+      padding:20px;
+      box-shadow:var(--sombra);
+      border:1px solid #e8eef5;
+    }
+
+    .tramite h4{
+      margin:0 0 10px 0;
+      color:var(--azul-900);
+      font-size:18px;
+    }
+
+    .calendario{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .mes{
+      background:#fff;
+      border-radius:20px;
+      padding:20px;
+      box-shadow:var(--sombra);
+      border:1px solid #e8eef5;
+    }
+
+    .mes h4{
+      margin:0 0 12px 0;
+      color:var(--azul-900);
+      font-size:20px;
+    }
+
+    .mes ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .descargas{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .descarga{
+      background:#fff;
+      border-radius:20px;
+      padding:20px;
+      box-shadow:var(--sombra);
+      border:1px solid #e8eef5;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .descarga .tag{
+      display:inline-block;
+      width:max-content;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--azul-100);
+      color:var(--azul-800);
+      font-size:12px;
+      font-weight:bold;
+    }
+
+    .descarga h4{
+      margin:0;
+      color:var(--azul-900);
+      font-size:19px;
+    }
+
+    .descarga p{
+      margin:0;
+      color:var(--gris-texto);
+      font-size:14px;
+    }
+
+    .descarga a{
+      margin-top:auto;
+      color:var(--azul-800);
+      font-weight:bold;
+    }
+
+    .proyectos{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .proyecto{
+      background:#fff;
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--sombra);
+      border:1px solid #e9eef4;
+    }
+
+    .proyecto h4{
+      margin:0 0 10px 0;
+      color:var(--azul-900);
+      font-size:22px;
     }
 
     .galeria{
@@ -604,6 +792,50 @@
       color:#465564;
     }
 
+    .faq{
+      display:grid;
+      gap:14px;
+    }
+
+    .faq-item{
+      background:#fff;
+      border-radius:18px;
+      box-shadow:var(--sombra);
+      border:1px solid #ebeff4;
+      overflow:hidden;
+    }
+
+    .faq-btn{
+      width:100%;
+      border:none;
+      background:#fff;
+      text-align:left;
+      padding:18px 20px;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-weight:bold;
+      color:var(--azul-900);
+    }
+
+    .faq-btn span:last-child{
+      font-size:24px;
+      line-height:1;
+      color:var(--azul-700);
+    }
+
+    .faq-contenido{
+      display:none;
+      padding:0 20px 18px 20px;
+      color:var(--gris-texto);
+    }
+
+    .faq-item.activo .faq-contenido{
+      display:block;
+    }
+
     .franja{
       background:linear-gradient(135deg, var(--azul-900), var(--azul-700));
       color:#fff;
@@ -648,6 +880,27 @@
     .item-contacto a{
       color:var(--azul-800);
       font-weight:bold;
+    }
+
+    .contacto-botones{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .mini-btn{
+      border:none;
+      background:var(--azul-100);
+      color:var(--azul-900);
+      padding:12px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .mini-btn:hover{
+      background:#dbeeff;
     }
 
     .formulario{
@@ -779,13 +1032,54 @@
       transform:scale(1.05);
     }
 
+    .volver-arriba{
+      position:fixed;
+      right:18px;
+      bottom:90px;
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:50%;
+      background:var(--azul-900);
+      color:#fff;
+      font-size:22px;
+      box-shadow:var(--sombra);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:var(--transicion);
+      z-index:998;
+    }
+
+    .volver-arriba.visible{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
     @media (max-width: 1100px){
       .hero-grid,
       .grid-2,
       .autoridades,
       .cards-3,
       .estructura,
+      .mvv,
+      .perfil,
       .inscripciones,
+      .tramites,
+      .calendario,
+      .descargas,
+      .proyectos,
       .galeria,
       .noticias,
       .contacto,
@@ -803,14 +1097,41 @@
       }
     }
 
-    @media (max-width: 760px){
-      .header-wrap{
-        flex-direction:column;
-        align-items:flex-start;
+    @media (max-width: 860px){
+      .menu-btn{
+        display:flex;
+      }
+
+      nav{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:min(88vw, 340px);
+        height:100vh;
+        background:#fff;
+        box-shadow:-10px 0 30px rgba(0,0,0,0.12);
+        padding:90px 24px 24px;
+        transition:var(--transicion);
+      }
+
+      nav.abierto{
+        right:0;
       }
 
       nav ul{
-        justify-content:flex-start;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+      }
+
+      .header-wrap{
+        align-items:center;
+      }
+    }
+
+    @media (max-width: 760px){
+      .header-wrap{
+        gap:16px;
       }
 
       .hero{
@@ -838,6 +1159,10 @@
       .accesos-rapidos{
         margin-top:24px;
       }
+
+      .footer-final{
+        flex-direction:column;
+      }
     }
   </style>
 </head>
@@ -861,15 +1186,18 @@
         </div>
       </div>
 
-      <nav>
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menú">☰</button>
+
+      <nav id="nav">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#nosotros">La Escuela</a></li>
           <li><a href="#autoridades">Autoridades</a></li>
           <li><a href="#orientaciones">Especialidades</a></li>
           <li><a href="#inscripciones">Inscripciones</a></li>
-          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#descargas">Descargas</a></li>
           <li><a href="#novedades">Novedades</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -878,7 +1206,7 @@
 
   <section class="hero" id="inicio">
     <div class="contenedor hero-grid">
-      <div>
+      <div class="reveal">
         <div class="badge">Wilde · Avellaneda · Educación técnica pública</div>
         <h2>Una escuela técnica para aprender haciendo</h2>
         <p>
@@ -894,7 +1222,7 @@
         </div>
       </div>
 
-      <div class="hero-card">
+      <div class="hero-card reveal">
         <img class="hero-logo" src="logo.png" alt="Logo institucional EEST N° 6">
         <h3>EEST N° 6</h3>
         <p>
@@ -921,7 +1249,7 @@
   </section>
 
   <div class="contenedor">
-    <div class="accesos-rapidos">
+    <div class="accesos-rapidos reveal">
       <a class="acceso" href="#orientaciones">
         <div class="ico">E</div>
         <h4>Especialidades</h4>
@@ -934,23 +1262,23 @@
         <p>Información orientativa para aspirantes y familias.</p>
       </a>
 
-      <a class="acceso" href="#novedades">
-        <div class="ico">N</div>
-        <h4>Novedades</h4>
-        <p>Comunicados, actos, proyectos y noticias escolares.</p>
+      <a class="acceso" href="#descargas">
+        <div class="ico">D</div>
+        <h4>Descargas</h4>
+        <p>Espacio para reglamentos, formularios y documentos.</p>
       </a>
 
       <a class="acceso" href="#contacto">
         <div class="ico">C</div>
         <h4>Contacto</h4>
-        <p>Canales institucionales y formulario de consulta web.</p>
+        <p>Canales institucionales y formulario web.</p>
       </a>
     </div>
   </div>
 
   <section id="nosotros">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">La Escuela</p>
         <h3>Una institución comprometida con la formación técnica</h3>
         <p>
@@ -962,7 +1290,7 @@
       </div>
 
       <div class="grid-2">
-        <div class="card">
+        <div class="card reveal">
           <h4>Identidad institucional</h4>
           <p>
             La escuela promueve una formación técnica integral, fortaleciendo la
@@ -976,7 +1304,7 @@
           </p>
         </div>
 
-        <div class="card destacado">
+        <div class="card destacado reveal">
           <h4>Información destacada</h4>
           <ul>
             <li>Dirección: Sadi Carnot 36, B1875 Wilde, Provincia de Buenos Aires</li>
@@ -990,9 +1318,52 @@
     </div>
   </section>
 
+  <section id="mision-vision">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Proyecto Institucional</p>
+        <h3>Misión, visión y valores</h3>
+        <p>
+          Esta sección puede ajustarse más adelante con redacciones institucionales definitivas.
+        </p>
+      </div>
+
+      <div class="mvv">
+        <div class="card reveal">
+          <h4>Misión</h4>
+          <p>
+            Brindar una educación técnica integral y de calidad, promoviendo la formación
+            académica, práctica y humana de los estudiantes para su inserción social,
+            ciudadana y laboral.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Visión</h4>
+          <p>
+            Consolidarse como una institución referente en educación técnica pública,
+            comprometida con la innovación, el desarrollo de capacidades y el vínculo
+            con la comunidad.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Valores</h4>
+          <div class="valor-lista">
+            <div class="valor-item">Responsabilidad</div>
+            <div class="valor-item">Compromiso</div>
+            <div class="valor-item">Respeto</div>
+            <div class="valor-item">Trabajo colaborativo</div>
+            <div class="valor-item">Innovación</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="autoridades">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Autoridades</p>
         <h3>Equipo institucional</h3>
         <p>
@@ -1001,25 +1372,25 @@
       </div>
 
       <div class="autoridades">
-        <div class="persona">
+        <div class="persona reveal">
           <div class="icono">D</div>
           <h4>Dirección</h4>
           <p>Agregar nombre del Director o Directora</p>
         </div>
 
-        <div class="persona">
+        <div class="persona reveal">
           <div class="icono">V</div>
           <h4>Vicedirección</h4>
           <p>Agregar nombre del Vicedirector o Vicedirectora</p>
         </div>
 
-        <div class="persona">
+        <div class="persona reveal">
           <div class="icono">J</div>
           <h4>Jefatura</h4>
           <p>Agregar nombre de Jefatura de Área o Taller</p>
         </div>
 
-        <div class="persona">
+        <div class="persona reveal">
           <div class="icono">S</div>
           <h4>Secretaría</h4>
           <p>Agregar nombre del equipo de Secretaría</p>
@@ -1030,7 +1401,7 @@
 
   <section id="orientaciones">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Especialidades</p>
         <h3>Títulos oficiales de la institución</h3>
         <p>
@@ -1040,7 +1411,7 @@
       </div>
 
       <div class="cards-3">
-        <article class="tarjeta">
+        <article class="tarjeta reveal">
           <div class="etiqueta">Título oficial</div>
           <h4>Tecnicatura en Electromecánica</h4>
           <p><strong>Perfil:</strong> Formación en sistemas mecánicos, eléctricos, neumáticos e hidráulicos.</p>
@@ -1048,7 +1419,7 @@
           <p><strong>Talleres clave:</strong> Ajuste, Herrería, Tornería y Electricidad Industrial.</p>
         </article>
 
-        <article class="tarjeta">
+        <article class="tarjeta reveal">
           <div class="etiqueta">Título oficial</div>
           <h4>Tecnicatura en Electricidad</h4>
           <p><strong>Contenidos:</strong> Instalaciones domiciliarias e industriales, tableros eléctricos, control de motores y energías renovables.</p>
@@ -1056,7 +1427,7 @@
           <p><strong>Enfoque:</strong> Energía, seguridad, mantenimiento eléctrico e instalaciones técnicas.</p>
         </article>
 
-        <article class="tarjeta">
+        <article class="tarjeta reveal">
           <div class="etiqueta">Título oficial</div>
           <h4>Tecnicatura en Administración de las Organizaciones</h4>
           <p><strong>Perfil:</strong> Formación orientada a la gestión institucional y empresarial, contabilidad, recursos humanos y organización administrativa.</p>
@@ -1067,9 +1438,43 @@
     </div>
   </section>
 
+  <section id="perfil-egresado">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Perfil del Egresado</p>
+        <h3>Competencias que busca desarrollar la institución</h3>
+        <p>
+          Este bloque presenta una visión general que luego puede ajustarse según la redacción oficial.
+        </p>
+      </div>
+
+      <div class="perfil">
+        <div class="card reveal">
+          <h4>Formación técnica y académica</h4>
+          <ul>
+            <li>Capacidad para aplicar conocimientos teóricos en situaciones prácticas.</li>
+            <li>Manejo de herramientas, procedimientos y tecnologías específicas.</li>
+            <li>Comprensión de procesos técnicos, administrativos y productivos.</li>
+            <li>Capacidad para continuar estudios superiores o trayectos de formación técnica.</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <h4>Desarrollo humano y social</h4>
+          <ul>
+            <li>Responsabilidad y autonomía en el trabajo.</li>
+            <li>Trabajo en equipo y comunicación efectiva.</li>
+            <li>Resolución de problemas y pensamiento crítico.</li>
+            <li>Compromiso con la comunidad y el entorno social.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="estructura">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Estructura Institucional</p>
         <h3>Trayectoria formativa por ciclos</h3>
         <p>
@@ -1079,7 +1484,7 @@
       </div>
 
       <div class="estructura">
-        <div class="bloque">
+        <div class="bloque reveal">
           <h4>Ciclo Básico (1° a 3° año)</h4>
           <p>
             Etapa de formación general donde todos los alumnos pasan por los mismos
@@ -1087,7 +1492,7 @@
           </p>
         </div>
 
-        <div class="bloque">
+        <div class="bloque reveal">
           <h4>Ciclo Superior (4° a 7° año)</h4>
           <p>
             Momento en que los estudiantes eligen una especialidad y profundizan
@@ -1095,7 +1500,7 @@
           </p>
         </div>
 
-        <div class="bloque">
+        <div class="bloque reveal">
           <h4>7° Año y Prácticas Profesionalizantes</h4>
           <p>
             Último tramo de formación donde se realizan pasantías, proyectos finales
@@ -1108,7 +1513,7 @@
 
   <section id="inscripciones">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Inscripciones</p>
         <h3>Información orientativa para aspirantes y familias</h3>
         <p>
@@ -1118,7 +1523,7 @@
       </div>
 
       <div class="inscripciones">
-        <div class="card">
+        <div class="card reveal">
           <h4>Cómo iniciar la consulta</h4>
           <p>
             Las familias y aspirantes pueden comunicarse con la institución para
@@ -1152,7 +1557,7 @@
           </div>
         </div>
 
-        <div class="card destacado">
+        <div class="card destacado reveal">
           <h4>Documentación y requisitos</h4>
           <ul>
             <li>Espacio para incorporar fechas de inscripción</li>
@@ -1166,9 +1571,161 @@
     </div>
   </section>
 
+  <section id="tramites">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Trámites Frecuentes</p>
+        <h3>Orientación rápida para estudiantes y familias</h3>
+        <p>
+          Esta sección puede completarse más adelante con procedimientos reales y enlaces específicos.
+        </p>
+      </div>
+
+      <div class="tramites">
+        <div class="tramite reveal">
+          <h4>Inscripción</h4>
+          <p>Espacio para explicar pasos, fechas y documentación requerida.</p>
+        </div>
+        <div class="tramite reveal">
+          <h4>Constancias</h4>
+          <p>Espacio para indicar cómo solicitar constancias o certificados.</p>
+        </div>
+        <div class="tramite reveal">
+          <h4>Mesas de examen</h4>
+          <p>Espacio para informar cronogramas y requisitos de inscripción.</p>
+        </div>
+        <div class="tramite reveal">
+          <h4>Pases y equivalencias</h4>
+          <p>Espacio para orientación sobre trámites administrativos frecuentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendario">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Calendario Escolar</p>
+        <h3>Bloque visual para fechas importantes</h3>
+        <p>
+          Más adelante se puede completar con fechas reales de exámenes, actos, reuniones e inscripciones.
+        </p>
+      </div>
+
+      <div class="calendario">
+        <div class="mes reveal">
+          <h4>Marzo</h4>
+          <ul>
+            <li>Inicio de actividades</li>
+            <li>Recepción de ingresantes</li>
+            <li>Comunicación institucional</li>
+          </ul>
+        </div>
+
+        <div class="mes reveal">
+          <h4>Junio</h4>
+          <ul>
+            <li>Actos escolares</li>
+            <li>Muestras y proyectos</li>
+            <li>Seguimiento pedagógico</li>
+          </ul>
+        </div>
+
+        <div class="mes reveal">
+          <h4>Agosto</h4>
+          <ul>
+            <li>Reuniones con familias</li>
+            <li>Actividades especiales</li>
+            <li>Propuestas institucionales</li>
+          </ul>
+        </div>
+
+        <div class="mes reveal">
+          <h4>Noviembre</h4>
+          <ul>
+            <li>Cierre de proyectos</li>
+            <li>Muestras finales</li>
+            <li>Instancias de evaluación</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="descargas">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Descargas</p>
+        <h3>Documentos y recursos institucionales</h3>
+        <p>
+          Este bloque puede alojar PDFs, reglamentos, formularios y materiales para estudiantes y familias.
+        </p>
+      </div>
+
+      <div class="descargas">
+        <div class="descarga reveal">
+          <span class="tag">PDF</span>
+          <h4>Reglamento institucional</h4>
+          <p>Espacio para incorporar el reglamento o acuerdo institucional.</p>
+          <a href="#">Próximamente</a>
+        </div>
+
+        <div class="descarga reveal">
+          <span class="tag">PDF</span>
+          <h4>Formulario de inscripción</h4>
+          <p>Espacio para descargar fichas o documentación inicial.</p>
+          <a href="#">Próximamente</a>
+        </div>
+
+        <div class="descarga reveal">
+          <span class="tag">PDF</span>
+          <h4>Horarios por turno</h4>
+          <p>Espacio para compartir cronogramas y organización escolar.</p>
+          <a href="#">Próximamente</a>
+        </div>
+
+        <div class="descarga reveal">
+          <span class="tag">PDF</span>
+          <h4>Guía para ingresantes</h4>
+          <p>Espacio para orientación básica para nuevas familias.</p>
+          <a href="#">Próximamente</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Proyectos Destacados</p>
+        <h3>Espacio para mostrar experiencias institucionales</h3>
+        <p>
+          Después se puede completar con trabajos reales de taller, muestras, ferias y actividades especiales.
+        </p>
+      </div>
+
+      <div class="proyectos">
+        <div class="proyecto reveal">
+          <h4>Proyecto técnico interdisciplinario</h4>
+          <p>Espacio para presentar experiencias donde se articulen saberes de distintas áreas.</p>
+        </div>
+
+        <div class="proyecto reveal">
+          <h4>Muestras y ferias escolares</h4>
+          <p>Espacio para visibilizar participación en exposiciones, ferias y eventos institucionales.</p>
+        </div>
+
+        <div class="proyecto reveal">
+          <h4>Prácticas profesionalizantes</h4>
+          <p>Espacio para comunicar experiencias formativas vinculadas con el mundo del trabajo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="galeria">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Galería</p>
         <h3>Espacios, talleres y proyectos</h3>
         <p>
@@ -1178,7 +1735,7 @@
       </div>
 
       <div class="galeria">
-        <div class="foto">
+        <div class="foto reveal">
           <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80" alt="Taller técnico">
           <div class="texto">
             <h4>Talleres</h4>
@@ -1186,7 +1743,7 @@
           </div>
         </div>
 
-        <div class="foto">
+        <div class="foto reveal">
           <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Aula técnica">
           <div class="texto">
             <h4>Aulas y formación teórica</h4>
@@ -1194,7 +1751,7 @@
           </div>
         </div>
 
-        <div class="foto">
+        <div class="foto reveal">
           <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Proyecto escolar">
           <div class="texto">
             <h4>Proyectos estudiantiles</h4>
@@ -1207,7 +1764,7 @@
 
   <section id="novedades">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Novedades</p>
         <h3>Información para toda la comunidad educativa</h3>
         <p>
@@ -1217,7 +1774,7 @@
       </div>
 
       <div class="noticias">
-        <article class="noticia">
+        <article class="noticia reveal">
           <span>Institucional</span>
           <h4>Inscripciones y documentación</h4>
           <p>
@@ -1226,7 +1783,7 @@
           </p>
         </article>
 
-        <article class="noticia">
+        <article class="noticia reveal">
           <span>Proyectos</span>
           <h4>Ferias, muestras y exposiciones</h4>
           <p>
@@ -1235,7 +1792,7 @@
           </p>
         </article>
 
-        <article class="noticia">
+        <article class="noticia reveal">
           <span>Comunidad</span>
           <h4>Actos y comunicados escolares</h4>
           <p>
@@ -1247,9 +1804,63 @@
     </div>
   </section>
 
+  <section id="faq">
+    <div class="contenedor">
+      <div class="titulo-seccion reveal">
+        <p class="eyebrow">Preguntas Frecuentes</p>
+        <h3>Respuestas rápidas para la comunidad educativa</h3>
+        <p>
+          Más adelante estas respuestas pueden ajustarse a la información oficial definitiva.
+        </p>
+      </div>
+
+      <div class="faq">
+        <div class="faq-item reveal">
+          <button class="faq-btn">
+            <span>¿Qué especialidades ofrece la escuela?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-contenido">
+            La institución ofrece Tecnicatura en Electromecánica, Tecnicatura en Electricidad y Tecnicatura en Administración de las Organizaciones.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn">
+            <span>¿Dónde está ubicada la escuela?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-contenido">
+            La dirección institucional es Sadi Carnot 36, B1875 Wilde, Provincia de Buenos Aires.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn">
+            <span>¿Cómo se puede hacer una consulta?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-contenido">
+            Se puede enviar una consulta a través del formulario web o escribir al correo institucional publicado en la sección de contacto.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn">
+            <span>¿La escuela tiene información para ingresantes?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-contenido">
+            Sí. Esta web ya está preparada para incorporar requisitos, fechas, documentación y orientaciones para ingresantes y familias.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="contenedor">
-      <div class="franja">
+      <div class="franja reveal">
         <h3>Educación técnica para construir futuro</h3>
         <p>
           La EEST N° 6 de Wilde, Avellaneda, apuesta a una formación basada en el saber,
@@ -1262,7 +1873,7 @@
 
   <section id="contacto">
     <div class="contenedor">
-      <div class="titulo-seccion">
+      <div class="titulo-seccion reveal">
         <p class="eyebrow">Contacto</p>
         <h3>Información institucional y consultas</h3>
         <p>
@@ -1271,12 +1882,12 @@
       </div>
 
       <div class="contacto">
-        <div class="card">
+        <div class="card reveal">
           <h4>Datos de contacto</h4>
 
           <div class="item-contacto">
             <strong>Dirección</strong>
-            <span>Sadi Carnot 36, B1875 Wilde, Provincia de Buenos Aires</span>
+            <span id="direccion-texto">Sadi Carnot 36, B1875 Wilde, Provincia de Buenos Aires</span>
           </div>
 
           <div class="item-contacto">
@@ -1286,7 +1897,7 @@
 
           <div class="item-contacto">
             <strong>Correo oficial</strong>
-            <a href="mailto:tecnica6avellaneda@abc.gob.ar">tecnica6avellaneda@abc.gob.ar</a>
+            <a href="mailto:tecnica6avellaneda@abc.gob.ar" id="mail-oficial">tecnica6avellaneda@abc.gob.ar</a>
           </div>
 
           <div class="item-contacto">
@@ -1298,9 +1909,14 @@
             <strong>Horarios de atención</strong>
             <span>Agregar días y horarios reales más adelante</span>
           </div>
+
+          <div class="contacto-botones">
+            <button class="mini-btn" id="copiar-mail">Copiar correo</button>
+            <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=Sadi%20Carnot%2036%2C%20Wilde%2C%20Buenos%20Aires" target="_blank">Abrir en Maps</a>
+          </div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h4>Formulario de contacto</h4>
 
           <div id="estado-form" class="estado-form"></div>
@@ -1323,7 +1939,7 @@
       </div>
 
       <div style="margin-top:24px;">
-        <div class="card mapa">
+        <div class="card mapa reveal">
           <h4>Ubicación</h4>
           <iframe
             src="https://www.google.com/maps?q=Sadi%20Carnot%2036%2C%20Wilde%2C%20Buenos%20Aires&output=embed"
@@ -1361,8 +1977,8 @@
         <ul>
           <li><a href="#orientaciones">Especialidades</a></li>
           <li><a href="#inscripciones">Inscripciones</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#descargas">Descargas</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
         </ul>
       </div>
 
@@ -1382,11 +1998,13 @@
 
   <a
     class="whatsapp"
-    href="https://wa.me/5491100000000"
+    href="https://wa.me/5491100000000?text=Hola%2C%20quisiera%20realizar%20una%20consulta%20a%20la%20EEST%20N%C2%B0%206"
     target="_blank"
     aria-label="WhatsApp">
     ☎
   </a>
+
+  <button class="volver-arriba" id="volver-arriba" aria-label="Volver arriba">↑</button>
 
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0Kwpfypdp6fwmlZt5LfPk9tIwS_LTw9HSvqfdj-qF1ovBZayPepMaa3mLpKjptHJF/exec";
@@ -1394,57 +2012,140 @@
     const form = document.getElementById("contact-form");
     const estado = document.getElementById("estado-form");
     const btn = document.getElementById("btn-enviar");
+    const volverArriba = document.getElementById("volver-arriba");
+    const menuBtn = document.getElementById("menu-btn");
+    const nav = document.getElementById("nav");
+    const copiarMailBtn = document.getElementById("copiar-mail");
+    const mailOficial = document.getElementById("mail-oficial").textContent.trim();
 
     function mostrarEstado(tipo, mensaje) {
       estado.className = "estado-form " + tipo;
       estado.textContent = mensaje;
     }
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+    if (form) {
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-      btn.disabled = true;
-      btn.textContent = "Enviando...";
-      estado.className = "estado-form";
-      estado.textContent = "";
+        btn.disabled = true;
+        btn.textContent = "Enviando...";
+        estado.className = "estado-form";
+        estado.textContent = "";
 
-      const datos = {
-        nombre: form.nombre.value.trim(),
-        email: form.email.value.trim(),
-        asunto: form.asunto.value.trim() + " [" + form.tema.value + "]",
-        mensaje: form.mensaje.value.trim()
-      };
-
-      try {
-        const response = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(datos)
-        });
-
-        let json = null;
+        const datos = {
+          nombre: form.nombre.value.trim(),
+          email: form.email.value.trim(),
+          asunto: form.asunto.value.trim() + " [" + form.tema.value + "]",
+          mensaje: form.mensaje.value.trim()
+        };
 
         try {
-          json = await response.json();
-        } catch (e) {
-          json = null;
-        }
+          const response = await fetch(SCRIPT_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+          });
 
-        if (json && json.ok) {
-          form.reset();
-          mostrarEstado("ok", "Consulta enviada correctamente. La escuela la recibirá en su correo oficial.");
-        } else {
-          mostrarEstado("error", "No se pudo enviar la consulta. Revisá la configuración del Apps Script o intentá nuevamente.");
+          let json = null;
+
+          try {
+            json = await response.json();
+          } catch (e) {
+            json = null;
+          }
+
+          if (json && json.ok) {
+            form.reset();
+            mostrarEstado("ok", "Consulta enviada correctamente. La escuela la recibirá en su correo oficial.");
+          } else {
+            mostrarEstado("error", "No se pudo enviar la consulta. Revisá la configuración del Apps Script o intentá nuevamente.");
+          }
+        } catch (error) {
+          mostrarEstado("error", "Ocurrió un problema al enviar la consulta. Intentá nuevamente en unos minutos.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Enviar consulta";
         }
-      } catch (error) {
-        mostrarEstado("error", "Ocurrió un problema al enviar la consulta. Intentá nuevamente en unos minutos.");
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Enviar consulta";
+      });
+    }
+
+    if (copiarMailBtn) {
+      copiarMailBtn.addEventListener("click", async function () {
+        try {
+          await navigator.clipboard.writeText(mailOficial);
+          copiarMailBtn.textContent = "Correo copiado";
+          setTimeout(() => {
+            copiarMailBtn.textContent = "Copiar correo";
+          }, 1800);
+        } catch (e) {
+          copiarMailBtn.textContent = "No se pudo copiar";
+          setTimeout(() => {
+            copiarMailBtn.textContent = "Copiar correo";
+          }, 1800);
+        }
+      });
+    }
+
+    if (menuBtn && nav) {
+      menuBtn.addEventListener("click", function () {
+        nav.classList.toggle("abierto");
+        document.body.classList.toggle("menu-abierto");
+        menuBtn.textContent = nav.classList.contains("abierto") ? "✕" : "☰";
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function () {
+          nav.classList.remove("abierto");
+          document.body.classList.remove("menu-abierto");
+          menuBtn.textContent = "☰";
+        });
+      });
+    }
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 500) {
+        volverArriba.classList.add("visible");
+      } else {
+        volverArriba.classList.remove("visible");
       }
     });
+
+    volverArriba.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".faq-btn").forEach(btnFaq => {
+      btnFaq.addEventListener("click", function () {
+        const item = btnFaq.parentElement;
+        const activo = item.classList.contains("activo");
+
+        document.querySelectorAll(".faq-item").forEach(i => {
+          i.classList.remove("activo");
+          const signo = i.querySelector(".faq-btn span:last-child");
+          if (signo) signo.textContent = "+";
+        });
+
+        if (!activo) {
+          item.classList.add("activo");
+          const signo = item.querySelector(".faq-btn span:last-child");
+          if (signo) signo.textContent = "−";
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   </script>
 
 </body>
